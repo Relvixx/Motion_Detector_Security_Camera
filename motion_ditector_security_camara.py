@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import csv
 from datetime import datetime
+import time
 
 # --- SETUP: CSV File Banana ---
 # Program start hote hi hum ek CSV file banayenge aur usme Headers likh denge
@@ -48,7 +49,10 @@ while True:
         time_for_filename = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         photo_name = f"intruder_{time_for_filename}.jpg"
         
-        print(f"Alert! Motion Started at {current_time}. Saving {photo_name}")
+        print(f"Alert! Motion Started at {current_time}. Waiting 1 second before saving...")
+        
+        # Wait 1 second before capturing the photo
+        time.sleep(1)
         
         # --- NAYA CODE: Screenshot Save Karna ---
         # Hum original 'frame' ko save kar rahe hain, jisme abhi tak green box nahi bana hai (ya agar box chahiye toh bounding box draw hone ke baad save kar sakte ho)
